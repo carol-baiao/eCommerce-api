@@ -1,10 +1,11 @@
- const products = [];
+const products = [];
 
 const DOM = {
     productsContainer: document.querySelector('#products-list'),
 
     addProduct(product, index) {
         const element = document.createElement('div')
+        element.classList.add("col-3") 
         element.innerHTML = DOM.innerHTMLProduct(product, index)
         element.dataset.index = index
 
@@ -14,7 +15,7 @@ const DOM = {
     innerHTMLProduct(product, index) {
         console.log(product);
         return `
-               <div class="card col-md-4  mb-2 style="width: 18rem;">
+            <div class="card mb-2 m-2" style="width: 18rem; height: 60rem;">
                     <img src=${product.image} class="card-img-top"
                         alt="Imagem produto">
                     <div class="card-body">
@@ -25,7 +26,7 @@ const DOM = {
                         <p class="card-text">Ano de lançamento: ${product.year}</p>
                         <a href="detalhes.html?id=${product.id}" data-product-id="${product.id}" target="_blank" class="btn btn-primary">Mais detalhes</a>
                     </div>
-               </div>
+            </div>
         `
     }
 }
