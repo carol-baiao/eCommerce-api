@@ -39,19 +39,26 @@ const productsAside = [];
 const DOMaside = {
     productsAsideContainer: document.querySelector('#aside-list'),
 
+
     addProduct(productAside, index) {
+
         const element = document.createElement('div')
         element.classList.add("row")
-        element.innerHTML = DOMaside.innerHTMLProduct(productAside, index)
+        for (let i = 0; i < 5; i++) {
+            let maior = 3;
+            if (productAside.rating.rate > maior) {
+                element.innerHTML = DOMaside.innerHTMLProduct(productAside, index)
+            }
+        }
         element.dataset.index = index
         DOMaside.productsAsideContainer.appendChild(element)
+
     },
 
+
     innerHTMLProduct(productAside, index) {
-        for (let i = 0; i < 5; i++) {
-            let maior = Number.MIN_SAFE_INTEGER;
-            if (productAside.rating.rate > maior) {
-                return `
+
+        return `
                     <div class="col-4">
                         <img src="${productAside.image}" class="img-fluid" alt="Produto">
                     </div>
@@ -60,11 +67,10 @@ const DOMaside = {
                             <h5 class="card-title">${productAside.title}</h5>
                             <p class="card-text fw-bold">Avaliação: ${productAside.rating.rate}</p>
                             <a href="detalhes.html?id=${productAside.id}" data-product-id="${productAside.id}" target="_blank" class="btn btn-primary">Visualizar</a>
-                      </div>
+                        </div>
                     </div>
                 `
-            }
-        }
+
     }
 }
 
