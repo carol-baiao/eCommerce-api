@@ -48,18 +48,23 @@ const DOMaside = {
     },
 
     innerHTMLProduct(productAside, index) {
-        return `
-                <div class="col-4">
+        for (let i = 0; i < 5; i++) {
+            let maior = Number.MIN_SAFE_INTEGER;
+            if (productAside.rating.rate > maior) {
+                return `
+                    <div class="col-4">
                         <img src="${productAside.image}" class="img-fluid" alt="Produto">
-                </div>
-                <div class="col-8">
-                    <div class="card-body">
-                            <h5 class="card-title">${productAside.title}</h5>
-                            <p class="card-text fw-bold">${productAside.price}</p>
-                            <a href="detalhes.html?id=${productAside.id}" data-product-id="${productAside.id}" target="_blank" class="btn btn-primary">Visualizar</a>
                     </div>
-                </div>
-        `
+                    <div class="col-8">
+                      <div class="card-body">
+                            <h5 class="card-title">${productAside.title}</h5>
+                            <p class="card-text fw-bold">Avaliação: ${productAside.rating.rate}</p>
+                            <a href="detalhes.html?id=${productAside.id}" data-product-id="${productAside.id}" target="_blank" class="btn btn-primary">Visualizar</a>
+                      </div>
+                    </div>
+                `
+            }
+        }
     }
 }
 
