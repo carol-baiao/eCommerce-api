@@ -50,7 +50,7 @@ const DOMaside = {
 
     innerHTMLProduct(productAside, index) {
         return `
-            <div class="flex-row">
+                         <div class="flex-row">
                                 <div class="row">
                                     <div class="col-4">
                                         <img src="${productAside.image}" class="img-fluid"
@@ -59,15 +59,16 @@ const DOMaside = {
                                     <div class="col-8">
                                         <div class="card-body">
                                             <h5 class="card-title">${productAside.title}</h5>
-                                            <p class="card-text fw-bold">${productAside.price}</p>
+                                            <p class="card-text fw-bold">${productAside.rating.rate}</p>
                                             <a href="detalhes.html?id=${productAside.id}" data-product-id="${productAside.id}" target="_blank" class="btn btn-primary">Visualizar</a>
                                         </div>
                                     </div>
                                 </div>
-             </div>
-        `
+                          </div>
+                 `
     }
 }
+
 
 
 // chamando api 
@@ -78,7 +79,7 @@ async function init() {
         })
         .then(function (response) {
             products.push(...response.products);
-            productsAside.push(...response.productsAside);
+            productsAside.push(...response.products);
         })
         .catch(function (error) {
             console.log("Error: " + error);
