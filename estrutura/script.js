@@ -44,12 +44,13 @@ const DOMaside = {
 
         const element = document.createElement('div')
         element.classList.add("row")
-        for (let i = 0; i < 5; i++) {
+        /* for (let i = 0; i < 5; i++) {
             let maior = 3;
             if (productAside.rating.rate > maior) {
                 element.innerHTML = DOMaside.innerHTMLProduct(productAside, index)
             }
-        }
+        } */
+        element.innerHTML = DOMaside.innerHTMLProduct(productAside, index)
         element.dataset.index = index
         DOMaside.productsAsideContainer.appendChild(element)
 
@@ -91,7 +92,21 @@ async function init() {
         });
 
     products.forEach(product => DOM.addProduct(product));
-    productsAside.forEach(productAside => DOMaside.addProduct(productAside));
+
+    productsAside.sort(function (a, b) {
+        if (a.rating.rate < b.rating.rate) {
+            return 1;
+        }
+        if (a.rating.rate > b.rating.rate) {
+            return -1;
+        }
+        // a must be equal to b
+        return 0;
+    });
+    for (let i = 0; i < 5; i++) {
+        DOMaside.addProduct(productsAside[i]);
+    }
+    //productsAside.forEach(productAside => DOMaside.addProduct(productAside));
 }
 
 init()
