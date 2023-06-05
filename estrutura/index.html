@@ -55,16 +55,6 @@
                                 <b>Minha conta</b>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <b>Rastrear pedido</b>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <b>Sair</b>
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -87,10 +77,13 @@
                                             <label for="tipo-produto" class="form-label">Tipo de produto:</label>
                                             <select id="tipo-produto" class="form-select bg-light-subtle">
                                                 <option value="">Tipo:</option>
-                                                <option value="">Face Wash</option>
-                                                <option value="">Eye cream</option>
+                                                <option value="">Eye Cream</option>
                                                 <option value="">Face Moisturisers</option>
+                                                <option value="">Face Scrub and Exfoliator</option>
+                                                <option value="">Face Wash and Cleanser</option>
+                                                <option value="">Mask and Peel</option>
                                                 <option value="">Sunscreen</option>
+                                                <option value="">Toner</option>
                                             </select>
                                         </div>
 
@@ -98,18 +91,34 @@
                                             <label for="marca-produto" class="form-label">Marca:</label>
                                             <select id="marca-produto" class="form-select bg-light-subtle">
                                                 <option value="">Marca:</option>
+                                                <option value="">Baldessarini</option>
+                                                <option value="">Biotique</option>
+                                                <option value="">Olay</option>
+                                                <option value="">Lotus</option>
                                                 <option value="">Ponds</option>
                                                 <option value="">Revlon</option>
                                             </select>
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="input-preco" class="form-label">Preço:</label>
-                                            <input class="form-control bg-light-subtle" type="search" name=""
-                                                id="input-preco-min" placeholder="R$ mín." size="5">
-                                            <br>
-                                            <input class="form-control bg-light-subtle" type="search" name=""
-                                                id="input-preco-max" placeholder="R$ máx." size="5">
+                                            <label for="gender-produto" class="form-label">Gênero:</label>
+                                            <select id="gender-produto" class="form-select bg-light-subtle">
+                                                <option value="">Gênero:</option>
+                                                <option value="">Feminino</option>
+                                                <option value="">Masculino</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="avaliacao-produto" class="form-label">Avaliação:</label>
+                                            <select id="avaliacao-produto" class="form-select bg-light-subtle">
+                                                <option value="">Avaliação:</option>
+                                                <option value="">1 estrela</option>
+                                                <option value="">2 estrelas</option>
+                                                <option value="">3 estrelas</option>
+                                                <option value="">4 estrelas</option>
+                                                <option value="">5 estrelas</option>
+                                            </select>
                                         </div>
 
                                         <div class="text-center">
@@ -227,6 +236,18 @@
             </section>
             <!-- fim fotos e barra lateral -->
         </section>
+        <nav aria-label="Page navigation example" style="display: flex; justify-content: center;">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#" id="page1" onclick="init(1)">1</a></li>
+              <li class="page-item"><a class="page-link" href="#" id="page2" onclick="init(2)">2</a></li>
+              <li class="page-item"><a class="page-link" href="#" id="page3" onclick="init(3)">3</a></li>
+              <li class="page-item"><a class="page-link" href="#" id="page4" onclick="init(4)">4</a></li>
+              <li class="page-item"><a class="page-link" href="#" id="page5" onclick="init(5)">5</a></li>
+              <li class="page-item"><a class="page-link" href="#" id="page6" onclick="init(6)">6</a></li>
+              <li class="page-item"><a class="page-link" href="#" id="page7" onclick="init(7)">7</a></li>
+              <li class="page-item"><a class="page-link" href="#" id="page8" onclick="init(8)">8</a></li>
+            </ul>
+          </nav>
     </main>
 
     <!-- início footer -->

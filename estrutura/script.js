@@ -1,5 +1,5 @@
 // declarando array (vazio) de produtos
-const products = [];
+let products = [];
 
 // objeto que cria e adiciona o produto na dom e na tela
 const DOM = {
@@ -70,10 +70,13 @@ const DOMaside = {
 }
 
 
-
 // chamando api 
-async function init() {
-    await fetch("http://diwserver.vps.webdock.cloud:8765/products/category/Personal Care - Skin Care")
+async function init(pageNumber) {
+    // limpando produtos anteriores (para paginação)
+    products.length = 0;
+    productsAside.length = 0;
+
+    await fetch(`http://diwserver.vps.webdock.cloud:8765/products/category/Personal Care - Skin Care?page=${pageNumber}`)
         .then(async function (response) {
             return response.json();
         })
@@ -85,8 +88,12 @@ async function init() {
             console.log("Error: " + error);
         });
 
+    DOM.productsContainer.innerHTML = "";
+    DOMaside.productsAsideContainer.innerHTML = "";
+
     products.forEach(product => DOM.addProduct(product));
 
+    // melhores avaliados 
     productsAside.sort(function (a, b) {
         if (a.rating.rate < b.rating.rate) {
             return 1;
@@ -103,7 +110,8 @@ async function init() {
     //productsAside.forEach(productAside => DOMaside.addProduct(productAside));
 }
 
-init()
+init(1)
+
 
 // funcionalidade de pesquisa (input)
 const search = () => {
