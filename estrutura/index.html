@@ -69,7 +69,7 @@
                     <div class="row">
                         <div class="col-lg-3 d-flex justify-content-center align-items-center">
                             <div class="d-flex flex-column h-100 justify-content-center align-items-center">
-                                <form action="" method="get" id="pesquisa-rapida"
+                                <form action="" method="get" id="formPesquisa-rapida"
                                     class="mb-3 mt-3 border border-dark p-3" style="background-color: antiquewhite;">
                                     <fieldset>
                                         <legend>Pesquisa Rápida - Filtre o produto</legend>
@@ -77,13 +77,13 @@
                                             <label for="tipo-produto" class="form-label">Tipo de produto:</label>
                                             <select id="tipo-produto" class="form-select bg-light-subtle">
                                                 <option value="">Tipo:</option>
-                                                <option value="">Eye Cream</option>
-                                                <option value="">Face Moisturisers</option>
-                                                <option value="">Face Scrub and Exfoliator</option>
-                                                <option value="">Face Wash and Cleanser</option>
-                                                <option value="">Mask and Peel</option>
-                                                <option value="">Sunscreen</option>
-                                                <option value="">Toner</option>
+                                                <option value="Eye Cream">Eye Cream</option>
+                                                <option value="Face Moisturisers">Face Moisturisers</option>
+                                                <option value="Face Scrub and Exfoliator">Face Scrub and Exfoliator</option>
+                                                <option value="Face Wash and Cleanser">Face Wash and Cleanser</option>
+                                                <option value="Mask and Peel">Mask and Peel</option>
+                                                <option value="Sunscreen">Sunscreen</option>
+                                                <option value="Toner">Toner</option>
                                             </select>
                                         </div>
 
@@ -91,12 +91,12 @@
                                             <label for="marca-produto" class="form-label">Marca:</label>
                                             <select id="marca-produto" class="form-select bg-light-subtle">
                                                 <option value="">Marca:</option>
-                                                <option value="">Baldessarini</option>
-                                                <option value="">Biotique</option>
-                                                <option value="">Olay</option>
-                                                <option value="">Lotus</option>
-                                                <option value="">Ponds</option>
-                                                <option value="">Revlon</option>
+                                                <option value="Baldessarini">Baldessarini</option>
+                                                <option value="Biotique">Biotique</option>
+                                                <option value="Olay">Olay</option>
+                                                <option value="Lotus">Lotus</option>
+                                                <option value="Ponds">Ponds</option>
+                                                <option value="Revlon">Revlon</option>
                                             </select>
                                         </div>
 
@@ -104,8 +104,8 @@
                                             <label for="gender-produto" class="form-label">Gênero:</label>
                                             <select id="gender-produto" class="form-select bg-light-subtle">
                                                 <option value="">Gênero:</option>
-                                                <option value="">Feminino</option>
-                                                <option value="">Masculino</option>
+                                                <option value="Men">Feminino</option>
+                                                <option value="Women">Masculino</option>
                                             </select>
                                         </div>
 
@@ -113,17 +113,17 @@
                                             <label for="avaliacao-produto" class="form-label">Avaliação:</label>
                                             <select id="avaliacao-produto" class="form-select bg-light-subtle">
                                                 <option value="">Avaliação:</option>
-                                                <option value="">1 estrela</option>
-                                                <option value="">2 estrelas</option>
-                                                <option value="">3 estrelas</option>
-                                                <option value="">4 estrelas</option>
-                                                <option value="">5 estrelas</option>
+                                                <option value="1">1 estrela</option>
+                                                <option value="2">2 estrelas</option>
+                                                <option value="3">3 estrelas</option>
+                                                <option value="4">4 estrelas</option>
+                                                <option value="5">5 estrelas</option>
                                             </select>
                                         </div>
 
                                         <div class="text-center">
-                                            <button type="submit" id="procurar-produto"
-                                                class="btn btn-success rounded-pill fw-bold">Procurar</button>
+                                            <a type="submit" id="btnProcurar-produto"
+                                                class="btn btn-success rounded-pill fw-bold" onclick="searchForm()" target="_blank">Procurar</a>
                                         </div>
 
                                     </fieldset>
@@ -190,22 +190,8 @@
                         <span class="text-center">
                             <h5>Melhores avaliados</h5>
                         </span>
-                        <div class="card body bg-light mb-3" id="aside-list"> <!--Chama a API aqui dos produtos Melhores avaliados -->
-                            <!-- ---------[Item que ira se repetir]--------- -->
-                            <!-- <div class="row">
-                                <div class="col-4">
-                                    <img src="" class="img-fluid" alt="Produto">
-                                </div>
-                                <div class="col-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Título</h5>
-                                        <p class="card-text fw-bold">Preço</p>
-                                        <a href="detalhes.html?id=${productAside.id}"
-                                            data-product-id="${productAside.id}" target="_blank"
-                                            class="btn btn-primary">Visualizar</a>
-                                    </div>
-                                </div>
-                            </div> -->
+                        <div class="card body bg-light mb-3" id="aside-list"> 
+                            <!--Chama a API dos produtos Melhores avaliados -->
                         </div>
                     </div>
                     <!--fim barra lateral-->

@@ -51,7 +51,7 @@ const DOMaside = {
     },
 
 
-    innerHTMLProduct(productAside, index) {
+    innerHTMLProduct(productAside) {
 
         return `
                     <div class="col-4">
@@ -120,16 +120,49 @@ const search = () => {
     const product = document.querySelectorAll('.product');
     const productname = productslist.getElementsByTagName("h5");
 
-    for (let i = 0; i < productname.length; i++) {
-        let combina = product[i].getElementsByTagName('h5')[0];
-        console.log(combina);
-        if (combina) {
-            let textvalue = combina.textContent || combina.innerHTML;
-            if (textvalue.toUpperCase().indexOf(searchbox) > -1) {
-                product[i].style.display = "";
-            } else {
-                product[i].style.display = "none";
+    for (let i=0; i < products.length; i++) {
+        for (let j = 0; j < productname.length; j++) {
+            let combina = product[j].getElementsByTagName('h5')[0];
+            console.log(combina);
+            if (combina) {
+                let textvalue = combina.textContent || combina.innerHTML;
+                if (textvalue.toUpperCase().indexOf(searchbox) > -1) {
+                    product[j].style.display = "";
+                } else {
+                    product[j].style.display = "none";
+                }
             }
         }
     }
+}
+
+// funcionalidade do formulário 
+function searchForm () {
+    // pegando o valor dos inputs  
+    let tipoProduto = document.getElementById("tipo-produto").value;    
+    let marcaProduto = document.getElementById("marca-produto").value;
+    let generoProduto = document.getElementById("gender-produto").value;
+    let avaliacaoProduto = document.getElementById("avaliacao-produto").value;
+    let link = document.getElementById("btnProcurar-produto");
+
+    // parametros da url
+    link.href = `pesquisa.html?`;
+    let params = [];
+
+    if (tipoProduto !== "") {
+        params.push("tipo=" + encodeURIComponent(tipoProduto))
+    }
+    if (marcaProduto !== "") {
+        params.push("marca=" + encodeURIComponent(marcaProduto))
+    }
+    if (generoProduto !== "") {
+        params.push("genero=" + encodeURIComponent(generoProduto))
+    }
+    if (avaliacaoProduto !== "") {
+        params.push("avaliacao=" + encodeURIComponent(avaliacaoProduto))
+    }
+    if(params.length > 0) {
+        link.href += params.join("&");
+    }
+    console.log(link.href);
 }
