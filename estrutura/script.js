@@ -71,7 +71,7 @@ const DOMaside = {
 
 
 // chamando api 
-async function init(pageNumber) {
+ async function init(pageNumber) {
     // limpando produtos anteriores (para paginação)
     products.length = 0;
     productsAside.length = 0;
@@ -107,8 +107,7 @@ async function init(pageNumber) {
     for (let i = 0; i < 5; i++) {
         DOMaside.addProduct(productsAside[i]);
     }
-    //productsAside.forEach(productAside => DOMaside.addProduct(productAside));
-}
+} 
 
 init(1)
 
@@ -123,7 +122,6 @@ const search = () => {
     for (let i=0; i < products.length; i++) {
         for (let j = 0; j < productname.length; j++) {
             let combina = product[j].getElementsByTagName('h5')[0];
-            console.log(combina);
             if (combina) {
                 let textvalue = combina.textContent || combina.innerHTML;
                 if (textvalue.toUpperCase().indexOf(searchbox) > -1) {
@@ -136,10 +134,11 @@ const search = () => {
     }
 }
 
+
 // funcionalidade do formulário 
-function searchForm () {
+function searchForm() {
     // pegando o valor dos inputs  
-    let tipoProduto = document.getElementById("tipo-produto").value;    
+    let tipoProduto = document.getElementById("tipo-produto").value;
     let marcaProduto = document.getElementById("marca-produto").value;
     let generoProduto = document.getElementById("gender-produto").value;
     let avaliacaoProduto = document.getElementById("avaliacao-produto").value;
@@ -161,8 +160,7 @@ function searchForm () {
     if (avaliacaoProduto !== "") {
         params.push("avaliacao=" + encodeURIComponent(avaliacaoProduto))
     }
-    if(params.length > 0) {
+    if (params.length > 0) {
         link.href += params.join("&");
     }
-    console.log(link.href);
 }

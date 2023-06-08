@@ -1,3 +1,6 @@
+// declarando array (vazio) de produtos
+let products = [];
+
 // Obter os parâmetros da URL
 const urlParams = new URLSearchParams(window.location.search);
 // declarando url da api 
@@ -6,7 +9,7 @@ let apiUrl = "http://diwserver.vps.webdock.cloud:8765/products/search?query=";
 // Verificar se o parâmetro 'tipo' está presente na URL e adiciona-lo na url da api
 if (urlParams.has('tipo')) {
     const tipoProduto = urlParams.get('tipo');
-    apiUrl += `${encodeURIComponent(tipoProduto)}`;
+    apiUrl += `&${encodeURIComponent(tipoProduto)}`;
 }
 
 // Verificar se o parâmetro 'marca' está presente na URL e adiciona-lo na url da api
@@ -29,9 +32,7 @@ if (urlParams.has('avaliacao')) {
 
 console.log('URL da API:', apiUrl);
 
-
-// declarando array (vazio) de produtos
-let products = [];
+console.log(products); 
 
 // objeto que cria e adiciona o produto na dom e na tela
 const DOM = {
@@ -47,7 +48,7 @@ const DOM = {
         DOM.productsContainer.appendChild(element)
     },
 
-    innerHTMLProduct(product) {
+    innerHTMLProduct(product, index) {
         return `
             <div class="product card mb-2 m-2">
                     <img src=${product.image} class="card-img-top"
@@ -63,7 +64,7 @@ const DOM = {
             </div>
         `
     }
-}
+} 
 
 // chamando api
 async function init() {
@@ -72,7 +73,7 @@ async function init() {
         return response.json();
       })
       .then(function (response) {
-        if (response && response.products) {
+        if(response.products && products) {
           products.push(...response.products);
         }
       })
@@ -86,4 +87,3 @@ async function init() {
   }
   
   init();
-  
